@@ -7,9 +7,6 @@ function App() {
     longitude: +14.1825,
     latitude: -16.2533,
   });
-  React.useEffect(() => {
-    console.log(position);
-  }, [position]);
 
   // Enregistrer la valeur de la zone de saisie dans l'état lorsqu'elle est modifiée
   const champModifie = event => {
