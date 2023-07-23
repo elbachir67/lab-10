@@ -45,18 +45,27 @@ function App() {
       hours2 + ":" + daterise.getUTCMinutes() + ":" + daterise.getUTCSeconds();
 
     return (
-      <div className="App">
-        <p>City: {city} </p>
-        <p>Temperature: {temp} °C</p>
-        <p>Main: {main}</p>
-        <p>Description: {desc}</p>
-        <img
-          src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
-          alt="Weather icon"
-        />
-        <p>Sunrise: {datetimeset} </p>
-        <p>Sunset: {datetimerise} </p>
-      </div>
+      <dl className="App alert alert-success">
+        <dt>City</dt>
+        <dd>{city} </dd>
+        <dt>Temperature</dt>
+        <dd>{temp} °C</dd>
+        <dt>Main</dt>
+        <dd>{main}</dd>
+        <dt>Description</dt>
+        <dd>{desc}</dd>
+        <dt>Illustration</dt>
+        <dd>
+          <img
+            src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
+            alt="Weather icon"
+          />
+        </dd>
+        <dt>Sunrise </dt>
+        <dd>{datetimeset} </dd>
+        <dt>Sunset </dt>
+        <dd>{datetimerise} </dd>
+      </dl>
     );
   } else {
     return <div>Loading...</div>;
