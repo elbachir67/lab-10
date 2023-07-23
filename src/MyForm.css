@@ -1,0 +1,34 @@
+form {
+  position: absolute;
+  right: 100px;
+  top: 30px;
+  background-color: white;
+  border: thin #c0c0c0 solid;
+
+  padding: 5px;
+
+  margin: auto;
+  width: 350px;
+}
+fieldset {
+  padding: 10px;
+  border: thin solid rgb(156, 43, 99);
+  margin-top: 5px;
+}
+
+label {
+  width: 150px;
+  float: left;
+  text-align: left;
+  font-weight: bold;
+}
+
+input {
+  padding: 3px;
+}
+input[type="submit"] {
+  margin-top: 10px;
+  font-weight: bold;
+  color: white;
+  background-color: dodgerblue;
+}
