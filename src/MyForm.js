@@ -3,18 +3,16 @@ import "./MyForm.css";
 import Meteo from "./Meteo";
 function MyForm() {
   const [position, setPosition] = useState({
-    longitude: 14.1825,
+    longitude: +14.1825,
     latitude: -16.2533,
   });
-
-  // Enregistrer la valeur de la zone de saisie dans l'état lorsqu'elle est modifiée
   const champModifie = event => {
     setPosition({ ...position, [event.target.name]: event.target.value });
   };
-  const handleSubmit = event => {
+  /*const handleSubmit = event => {
     alert(`Position ${position.longitude} ${position.latitude}`);
     event.preventDefault();
-  };
+  };*/
 
   return (
     <>
@@ -35,7 +33,6 @@ function MyForm() {
           value={position.latitude}
         />
       </form>
-
       <Meteo longitude={position.longitude} latitude={position.latitude} />
     </>
   );
