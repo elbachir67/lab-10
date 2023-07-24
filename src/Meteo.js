@@ -59,9 +59,19 @@ function Meteo({ longitude, latitude }) {
         ? "0" + daterise.getUTCSeconds()
         : daterise.getUTCSeconds();
     const datetimerise = hours + ":" + minutes + ":" + secondes;
+    const theme =
+      temp < 0
+        ? "primary"
+        : temp < 20
+        ? "info"
+        : temp < 30
+        ? "success"
+        : "danger";
+
+    const classe = `alert alert-${theme}`;
 
     return (
-      <dl className="App alert alert-success">
+      <dl className={classe}>
         <dt>City</dt>
         <dd>{city} </dd>
         <dt>Temperature</dt>
