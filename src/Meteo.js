@@ -7,6 +7,7 @@ function Meteo({ longitude, latitude }) {
   const [desc, setDesc] = useState("");
   const [sunrise, setSunrise] = useState("");
   const [sunset, setSunset] = useState("");
+  const [time, setTime] = useState("");
 
   const [icon, setIcon] = useState("");
   const [isReady, setReady] = useState(false);
@@ -23,6 +24,7 @@ function Meteo({ longitude, latitude }) {
         setIcon(jsonresult.weather[0].icon);
         setSunrise(jsonresult.sys.sunrise);
         setSunset(jsonresult.sys.sunset);
+        setTime(jsonresult.dt);
         setReady(true);
       })
       .catch(err => console.error(err));
@@ -59,6 +61,23 @@ function Meteo({ longitude, latitude }) {
         ? "0" + daterise.getUTCSeconds()
         : daterise.getUTCSeconds();
     const datetimerise = hours + ":" + minutes + ":" + secondes;
+
+    const datetime = new Date(time * 1000);
+    hours =
+      datetime.getUTCHours() < 10
+        ? "0" + datetime.getUTCHours()
+        : datetime.getUTCHours();
+    minutes =
+      datetime.getUTCMinutes() < 10
+        ? "0" + datetime.getUTCMinutes()
+        : datetime.getUTCMinutes();
+    secondes =
+      datetime.getUTCSeconds() < 10
+        ? "0" + datetime.getUTCSeconds()
+        : datetime.getUTCSeconds();
+
+    const dt = hours + ":" + minutes + ":" + secondes;
+
     const theme =
       temp < 0
         ? "primary"
@@ -80,13 +99,15 @@ function Meteo({ longitude, latitude }) {
         <dd>{main}</dd>
         <dt>Description</dt>
         <dd>{desc}</dd>
-        <dt>Illustration</dt>
+        <dt></dt>
         <dd>
           <img
             src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
             alt="Weather icon"
           />
         </dd>
+        <dt>Time </dt>
+        <dd>{dt} </dd>
         <dt>Sunrise </dt>
         <dd>{datetimeset} </dd>
         <dt>Sunset </dt>
